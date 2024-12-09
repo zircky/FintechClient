@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { colors } from './src/constants/colors.contants'
 
 export default {
   content: [
@@ -7,6 +8,7 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: colors,
     extend: {
       colors: {
         background: "var(--background)",
