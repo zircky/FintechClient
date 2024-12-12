@@ -1,7 +1,7 @@
 export default function Home() {
 	return (
-		<div>
-			<h1>8fef</h1>
+		<div className={'h-screen ml-[1237px] border-l border-l-lightGrey'}>
+			<span className={' '}/>
 		</div>
 	)
 }
