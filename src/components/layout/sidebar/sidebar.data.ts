@@ -20,48 +20,56 @@ import { PUBLIC_PAGE } from '@/config/public-page.config'
 export const SidebarData: ISidebarType[] = [
 	{
 		label: 'Home',
+		ruLabel: 'Главная страница',
 		icon: Home,
 		active:ActiveHome,
 		href: PUBLIC_PAGE.HOME
 	},
 	{
 		label: 'Exchange',
+		ruLabel: 'Обмен',
 		icon: Exchange,
 		active: ActiveExchange,
     href: PUBLIC_PAGE.EXCHANGE
 	},
 	{
 		label: 'Prices',
+		ruLabel: 'Цены',
 		icon: Prices,
 		active: ActivePrices,
     href: PUBLIC_PAGE.PRICES
 	},
 	{
 		label: 'Wallets',
+		ruLabel: 'Кошельки',
 		icon: Wallet,
 		active: ActiveWallet,
 		href: PUBLIC_PAGE.WALLET
 	},
 	{
 		label: 'Promotions',
+		ruLabel: 'Акции',
 		icon: Promotions,
 		active: ActivePromotions,
 		href: PUBLIC_PAGE.PROMOTIONS
 	},
 	{
 		label: 'Activities',
+		ruLabel: 'Деятельность',
 		icon: Activities,
 		active: ActiveActivities,
 		href: PUBLIC_PAGE.ACTIVITIES
 	},
 	{
 		label: 'Notifications',
+		ruLabel: 'Уведомления',
 		icon: Notification,
 		active: ActiveNotification,
 		href: PUBLIC_PAGE.NOTIFICATION
 	},
 	{
 		label: 'Settings',
+		ruLabel: 'Настройки',
 		icon: Setting,
 		active: ActiveSetting,
 		href: PUBLIC_PAGE.SETTING
