@@ -1,7 +1,7 @@
 export interface ISidebarType {
 	label: string;
 	ruLabel: string;
-	icon: String;
-	active: String;
+	icon: string;
+	active: string;
 	href: string;
 }
