@@ -4,7 +4,7 @@ import { type SubmitHandler, useForm } from 'react-hook-form'
 import { Field } from '@/ui/Field'
 import { Button } from '@/ui/Button'
 import Image from 'next/image'
-import auth from '@/assets/img/auth.svg'
+import auth from '@/assets/img/img.png'
 
 interface IAuthFrom {
 	username: string,
@@ -31,9 +31,13 @@ export function Auth() {
 	}
 
 	return (
-		<div className={'flex justify-center items-center'}>
-			<Image src={auth} alt={'auth'} className={''}/>
+		<div className={'flex items-center relative'}>
+			<div className={'w-[39.25rem] h-screen bg-accent1'}>
+
+				<Image src={auth} alt={'auth'} className={'top-[392px] absolute'} />
+			</div>
 			<div className={'max-w-md mx-auto mt-8'}>
+				<h4 className={'font-medium text-3xl text-pretty w-[412px] h-20'}>{isLogin ? 'Sign in to Unity Exchange' : 'Sign up' }</h4>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<Field
 						label={'Username'}
