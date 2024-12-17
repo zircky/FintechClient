@@ -36,9 +36,9 @@ export function Auth() {
 
 				<Image src={auth} alt={'auth'} className={'top-[392px] absolute'} />
 			</div>
-			<div className={'max-w-md mx-auto mt-8'}>
+			<div className={'w-[412px] h-[560px] mx-auto mt-8 '}>
 				<h4 className={'font-medium text-3xl text-pretty w-[412px] h-20'}>{isLogin ? 'Sign in to Unity Exchange' : 'Sign up' }</h4>
-				<form onSubmit={handleSubmit(onSubmit)}>
+				<form onSubmit={handleSubmit(onSubmit)} className={''}>
 					<Field
 						label={'Username'}
 						type={'text'}
@@ -50,7 +50,8 @@ export function Auth() {
 						type={'password'}
 						registration={register('password', { required: 'Password is required', minLength: 8 })}
 						error={errors.password?.message}
-						placeholder={'Password'} />
+						placeholder={'Password'}
+					/>
 					{!isLogin && <Field
 						label={'Confirm Password'}
 						type={'password'}
@@ -62,15 +63,21 @@ export function Auth() {
 						placeholder={'Confirm Password'} />}
 					<Button type={'submit'}>{isLogin ? 'Sing In' : 'Sing Up'}</Button>
 				</form>
-				<div className={'flex justify-center mb-6 gap-1'}>
-					<button type={'button'}
-									className={''}
-									onClick={() => setIsLogin(true)}>Sing In
-					</button>
-					<button type={'button'}
-									className={''}
-									onClick={() => setIsLogin(false)}>Sing Up
-					</button>
+				<div className={'flex justify-center mb-6 gap-1 w-full h-5 mt-4'}>
+
+					{isLogin ? <div className={'flex'}>
+						<p className={'mr-[11px]'}>Not a member?</p>
+						<button type={'button'}
+										className={'text-md font-bold text-primary'}
+										onClick={() => setIsLogin(false)}>Sing Up now
+						</button>
+					</div> : <div className={'block w-full h-8 text-light text-xs'}>
+						<p className={'flex text-balance indent-2'}>By signing up I agree that I am 18 years of age or older, to the <p className={'flex text-primary'}>User Agreement</p>, <p className={'flex text-primary'}>Privacy Policy</p>, <p className={'flex text-primary'}>Cookie Policy</p>, and <p className={'flextext-primary'}>E-Sign Consent</p>.</p>
+						<button type={'button'}
+													 className={'text-primary'}
+															onClick={() => setIsLogin(true)}>Sing In
+					</button></div>
+					}
 				</div>
 			</div>
 		</div>

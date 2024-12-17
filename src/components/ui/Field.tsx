@@ -10,12 +10,12 @@ interface Props extends InputHTMLAttributes<HTMLInputElement>{
 
 export function Field({label, error, registration, ...props}: Props) {
 	return (
-		<div className={'mb-4'}>
+		<div className={'mb-6 h-20'}>
 			<label>
 				<span>
 					{label}
 				</span>
-				<input className={cn('', error ? '' : '')}/>
+				<input {...props} className={cn('block px-3 py-4 w-full bg-DarkActive rounded-xl focus:outline focus:ring focus:border-accent2 focus:bg-lightGrey shadow-none', error ? '' : '')} />
 			</label>
 			{error && <p className={'text-red-800'}>{error}</p>}
 		</div>

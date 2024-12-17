@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.scss";
 import { SUSE } from 'next/font/google'
-import Sidebar from '@/components/layout/sidebar/Sidebar'
-import { Layout } from '@/components/layout/Layout'
 import { Providers } from '@/providers/Providers'
-import favicon from './../assets/img/favicon.ico'
 
 const inter = SUSE({ subsets: ["latin"] });
 

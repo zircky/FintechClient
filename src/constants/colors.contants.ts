@@ -14,5 +14,6 @@ export const colors = {
 	up: '#3DBAA2',
 	gradient1: '#D080FF',
 	gradient2: '#86E1A0',
-	DarkActive: '#191B20'
+	DarkActive: '#191B20',
+	light: '#808191'
 }

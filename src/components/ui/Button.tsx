@@ -7,7 +7,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export function Button({isLoading, children, ...props}: Props) {
 	return (
-		<button className={''} disabled={isLoading || props.disabled}
+		<button className={'w-full h-12 rounded-xl bg-primary mt-2'} disabled={isLoading || props.disabled}
 		{...props}>
 			{isLoading ? 'Loading...' : children}
 		</button>
