@@ -1,4 +1,4 @@
-import { MenuItem } from '@/components/layout/content/header/MenuItem'
+
 import { SearchField } from '@/components/layout/content/header/SearchField'
 import { HeaderLinks } from '@/components/layout/content/header/HeaderLinks'
 import { HeaderProfile } from '@/components/layout/content/header/HeaderProfile'
