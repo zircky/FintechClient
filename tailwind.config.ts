@@ -10,6 +10,9 @@ export default {
   theme: {
     extend: {
       colors:colors,
+      screens: {
+        '3xl': '1920px'
+      }
     },
   },
   plugins: [],
