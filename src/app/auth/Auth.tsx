@@ -9,30 +9,17 @@ import link from '@/assets/img/link.svg'
 import logo from '@/assets/img/logo.svg'
 import Link from 'next/link'
 import { PUBLIC_PAGE } from '@/config/public-page.config'
+import type { IAuthFrom } from '@/types/auth.type'
+import { useAuthForm } from '@/app/auth/useAuthForm'
 
-interface IAuthFrom {
-	username: string,
-	password: string,
-	confirmPassword?: string
-}
 
 export function Auth() {
 	const [isLogin, setIsLogin] = useState(true)
-	const {register, handleSubmit, formState: {errors}, watch} = useForm<IAuthFrom>({
+	const {register, handleSubmit, formState: {errors}, watch, reset} = useForm<IAuthFrom>({
 		mode: 'onChange'
 	})
 
-	const password = watch('password')
-
-	const onSubmit: SubmitHandler<IAuthFrom> = data => {
-		if (isLogin) {
-			// Handle login logic here
-      console.log('Login:', data)
-		} else {
-			// Handle registration logic here
-      console.log('Registration:', data)
-		}
-	}
+	const {isLoading, onSubmit} = useAuthForm(isLogin ? 'login' : 'register', reset)
 
 	return (
 		<div className={'flex items-center relative'}>
@@ -45,7 +32,7 @@ export function Auth() {
 			</div>
 			<div className={'w-[412px] h-[560px] mx-auto mt-8 '}>
 				<h4 className={'text-3xl text-pretty w-[412px] h-16'}>{isLogin ? 'Sign in to Unity Exchange' : 'Sign up' }</h4>
-				<form onSubmit={handleSubmit(onSubmit)} className={''}>
+				<form onSubmit={handleSubmit(onSubmit)}>
 					<Field
 						label={'Username'}
 						type={'text'}
@@ -64,12 +51,12 @@ export function Auth() {
 						type={'password'}
 						registration={register('confirmPassword', {
 							required: 'Password need confirm',
-							validate: value => value === password || 'Passwords don`t match'
+							validate: value => value === watch('password') || 'Passwords don`t match'
 						})}
 						error={errors.confirmPassword?.message}
 						placeholder={'Confirm Password'} />}
 					{isLogin && <h5 className={'flex text-primary justify-end mb-[1.875rem]'}><Image src={link} alt={link} width={16} height={16} className={'mr-3 my-1'}/>Forgot Password?</h5>}
-					<Button type={'submit'}>{isLogin ? 'Sing In' : 'Sing Up'}</Button>
+					<Button type={'submit'} isLoading={isLoading}>{isLogin ? 'Sing In' : 'Sing Up'}</Button>
 				</form>
 				<div className={'flex justify-center mb-6 gap-1 w-full h-5 mt-4'}>
 
